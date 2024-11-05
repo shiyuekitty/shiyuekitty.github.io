@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Grogram on </title>
+    <link>http://localhost:1313/tags/grogram/</link>
+    <description>Recent content in Grogram on </description>
+    <generator>Hugo</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Tue, 05 Nov 2024 10:02:47 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/grogram/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Django</title>
+      <link>http://localhost:1313/posts/program/python/django/</link>
+      <pubDate>Tue, 05 Nov 2024 10:02:47 +0800</pubDate>
+      <guid>http://localhost:1313/posts/program/python/django/</guid>
+      <description>&lt;hr&gt;&#xA;&lt;h2 id=&#34;参考链接&#34;&gt;参考链接&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://rocky0429.blog.csdn.net/article/details/119779110?spm=1001.2101.3001.6650.15&amp;amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-15-119779110-blog-107745971.235%5Ev27%5Epc_relevant_multi_platform_whitelistv3&amp;amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-15-119779110-blog-107745971.235%5Ev27%5Epc_relevant_multi_platform_whitelistv3&amp;amp;utm_relevant_index=16&#34;&gt;https://rocky0429.blog.csdn.net/article/details/119779110?spm=1001.2101.3001.6650.15&amp;amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-15-119779110-blog-107745971.235%5Ev27%5Epc_relevant_multi_platform_whitelistv3&amp;amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-15-119779110-blog-107745971.235%5Ev27%5Epc_relevant_multi_platform_whitelistv3&amp;amp;utm_relevant_index=16&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;celery&#xA;&lt;a href=&#34;https://www.cnblogs.com/wdliu/p/9530219.html&#34;&gt;https://www.cnblogs.com/wdliu/p/9530219.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;django工具&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/105009911&#34;&gt;https://zhuanlan.zhihu.com/p/105009911&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;概念&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;WSGI / uwsgi / uWSGI 这三个概念的区分。&#xA;(1) WSGI 是一种通信协议。&#xA;(2) uwsgi 是一种线路协议而不是通信协议，在此常用于在 uWSGI 服务器与其他网络服务器的数据通信。&#xA;(3) uWSGI 是实现了 uwsgi 和 WSGI 两种协议的 Web 服务器。&lt;/p&gt;&#xA;&lt;p&gt;Tornado&#xA;Tornado 和现在的主流 Web 服务器框架（包括大多数 Python 的框架）有着明显的区别：它是非阻塞式服务器，而且速度相当快。得利于其非阻塞的方式和对 epoll 的运用，Tornado 每秒可以处理数以千计的连接，因此 Tornado 是实时 Web 服务的一个 理想框架。&lt;/p&gt;&#xA;&lt;p&gt;RESTful 架构：&#xA;(1) 每个 URL 代表一种资源&#xA;(2) 客户端和服务器之间，传递这种资源的某种表现层&#xA;(3) 客户端通过四个 http 动词，对服务器资源进行操作，实现表现层状态转换&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;GET 表示获取资源，POST 表示新建资源，PUT 表示更新资源，DELETE 表示删除资源。HTTP 协议中最常用的就是这四种操作方式。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;knowledge&lt;/p&gt;&#xA;&lt;p&gt;WSGI是Python在处理HTTP请求时，规定的一种处理方式&lt;/p&gt;&#xA;&lt;p&gt;django生命周期&#xA;. 当用户在浏览器中输入url时,浏览器会生成请求头和请求体发给服务端&#xA;请求头和请求体中会包含浏览器的动作(action),这个动作通常为get或者post,体现在url之中.&#xA;. url经过Django中的wsgi,再经过Django的中间件,最后url到过路由映射表,在路由中一条一条进行匹配,&#xA;一旦其中一条匹配成功就执行对应的视图函数,后面的路由就不再继续匹配了.&#xA;. 视图函数根据客户端的请求查询相应的数据.返回给Django,然后Django把客户端想要的数据做为一个字符串返回给客户端.&#xA;. 客户端浏览器接收到返回的数据,经过渲染后显示给用户.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

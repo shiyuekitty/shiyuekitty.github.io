@@ -6,37 +6,32 @@
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YunNanClouds | </title>
+    <title>Conda | </title>
 
     
 <link href="/favicon.ico" rel="icon" type="image/x-icon" />
 
 
-<link rel="canonical" href="http://localhost:1313/posts/yunnanclouds/" />
+<link rel="canonical" href="http://localhost:1313/program/python/conda/" />
 
 
 
-<meta name="author" content="sy" />
-<meta name="description" content="" />
-
-
-<meta name="keywords" content="KunMing,Life">
+<meta name="author" content="SY" />
+<meta name="description" content="shiyue&#39;s life record～" />
 
 
 
 <meta name="generator" content="Hugo 0.136.2">
 
 
-<meta property="og:url" content="http://localhost:1313/posts/yunnanclouds/">
-  <meta property="og:title" content="YunNanClouds">
-  <meta property="og:description" content="shiyue&#39;s life record～">
+<meta property="og:url" content="http://localhost:1313/program/python/conda/">
+  <meta property="og:title" content="Conda">
+  <meta property="og:description" content="Conda conda安装 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh sh Miniconda3-latest-Linux-x86_64.sh source ~/.bashrc conda install --channel conda-forge cartopy conda install --yes --channel conda-forge conda install --yes --file requirements.txt # 导出环境 conda env export --no-builds &gt; conEnv.yaml # 导入环境 conda env create -f py36.yaml pip install --upgrade setuptools # 查看环境 conda info --envs # pip导出安装的库到27.txt： pip freeze &gt; requirements.txt # pip导入27.txt中列出的库到新机： pip install -r 27.txt 添加环境变量 vim ~/.bashrc # 2.在.bashrc文件底部添加 # 为了避免与其他服务器用户产生命令冲突,使用自己的英文名&#43;Python替代python alias yuepython=&#39;/root/anaconda3/bin/python&#39; #这里写anaconda的安装路径 export PATH=&#34;/root/anaconda3/bin:$PATH&#34; source ~/.bashrc conda --version #conda 4.5.11 换源">
   <meta property="og:locale" content="zh_Hans">
   <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-11-01T11:10:19+08:00">
-    <meta property="article:modified_time" content="2024-11-01T11:10:19+08:00">
-    <meta property="article:tag" content="KunMing">
-    <meta property="article:tag" content="Life">
+    <meta property="article:section" content="program">
+    <meta property="article:published_time" content="2024-11-05T09:58:27+08:00">
+    <meta property="article:modified_time" content="2024-11-05T09:58:27+08:00">
     <meta property="og:image" content="http://localhost:1313/img/background.jpg">
 
 
@@ -44,8 +39,8 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/img/background.jpg">
-  <meta name="twitter:title" content="YunNanClouds">
-  <meta name="twitter:description" content="shiyue&#39;s life record～">
+  <meta name="twitter:title" content="Conda">
+  <meta name="twitter:description" content="Conda conda安装 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh sh Miniconda3-latest-Linux-x86_64.sh source ~/.bashrc conda install --channel conda-forge cartopy conda install --yes --channel conda-forge conda install --yes --file requirements.txt # 导出环境 conda env export --no-builds &gt; conEnv.yaml # 导入环境 conda env create -f py36.yaml pip install --upgrade setuptools # 查看环境 conda info --envs # pip导出安装的库到27.txt： pip freeze &gt; requirements.txt # pip导入27.txt中列出的库到新机： pip install -r 27.txt 添加环境变量 vim ~/.bashrc # 2.在.bashrc文件底部添加 # 为了避免与其他服务器用户产生命令冲突,使用自己的英文名&#43;Python替代python alias yuepython=&#39;/root/anaconda3/bin/python&#39; #这里写anaconda的安装路径 export PATH=&#34;/root/anaconda3/bin:$PATH&#34; source ~/.bashrc conda --version #conda 4.5.11 换源">
 
 
 
@@ -259,7 +254,22 @@
   
     
     <div class="absolute right-0 lg:w-36 xl:w-48 hidden lg:block" :style="{ height }">
-      <nav id="TableOfContents"></nav>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#conda安装">conda安装</a></li>
+    <li><a href="#迁移环境打包">迁移环境打包</a>
+      <ul>
+        <li><a href="#conda生成-requirementstxt">conda生成 requirements.txt</a></li>
+        <li><a href="#pipreqs">pipreqs</a></li>
+      </ul>
+    </li>
+    <li><a href="#迁移遇到的问题">迁移遇到的问题</a>
+      <ul>
+        <li><a href="#_condapackerror">_CondaPackError</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
       <div class="dream-adsense px-5">
       
@@ -268,27 +278,26 @@
     
     <article class="mx-auto prose prose-quoteless dark:prose-invert" id="dream-single-post-main" itemscope itemtype="http://schema.org/Article">
       
-  <meta itemprop="name" content="YunNanClouds">
-  <meta itemprop="description" content="shiyue&#39;s life record～">
-  <meta itemprop="datePublished" content="2024-11-01T11:10:19+08:00">
-  <meta itemprop="dateModified" content="2024-11-01T11:10:19+08:00">
-  <meta itemprop="wordCount" content="15">
+  <meta itemprop="name" content="Conda">
+  <meta itemprop="description" content="Conda conda安装 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh sh Miniconda3-latest-Linux-x86_64.sh source ~/.bashrc conda install --channel conda-forge cartopy conda install --yes --channel conda-forge conda install --yes --file requirements.txt # 导出环境 conda env export --no-builds &gt; conEnv.yaml # 导入环境 conda env create -f py36.yaml pip install --upgrade setuptools # 查看环境 conda info --envs # pip导出安装的库到27.txt： pip freeze &gt; requirements.txt # pip导入27.txt中列出的库到新机： pip install -r 27.txt 添加环境变量 vim ~/.bashrc # 2.在.bashrc文件底部添加 # 为了避免与其他服务器用户产生命令冲突,使用自己的英文名&#43;Python替代python alias yuepython=&#39;/root/anaconda3/bin/python&#39; #这里写anaconda的安装路径 export PATH=&#34;/root/anaconda3/bin:$PATH&#34; source ~/.bashrc conda --version #conda 4.5.11 换源">
+  <meta itemprop="datePublished" content="2024-11-05T09:58:27+08:00">
+  <meta itemprop="dateModified" content="2024-11-05T09:58:27+08:00">
+  <meta itemprop="wordCount" content="366">
   <meta itemprop="image" content="http://localhost:1313/img/background.jpg">
-  <meta itemprop="keywords" content="KunMing,Life">
 
       <header>
-        <h1 itemprop="headline">YunNanClouds</h1>
+        <h1 itemprop="headline">Conda</h1>
         <p class="text-sm">
           
-            <span data-format="luxon">2024-11-01T11:10:19&#43;08:00</span>
+            <span data-format="luxon">2024-11-05T09:58:27&#43;08:00</span>
           
 
-          | <span>1 minute read</span>
+          | <span>2 minute read</span>
 
           
           | <span>Updated at
             
-              <span data-format="luxon">2024-11-01T11:10:19&#43;08:00</span>
+              <span data-format="luxon">2024-11-05T09:58:27&#43;08:00</span>
             </span>
           
         </p>
@@ -300,9 +309,7 @@
 
   <span itemprop="author" itemscope itemtype="https://schema.org/Person">
   
-    
-      <span itemprop="name">sy</span>
-    
+    <span itemprop="name">SY</span>
   
   </span>
 </div>
@@ -318,19 +325,19 @@
   
   
     <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
-      href="https://x.com/intent/post?text=YunNanClouds&amp;url=http://localhost:1313/posts/yunnanclouds/" target="_blank" rel="noopener noreferrer"
+      href="https://x.com/intent/post?text=Conda&amp;url=http://localhost:1313/program/python/conda/" target="_blank" rel="noopener noreferrer"
       title="Share on X">
       <ion-icon class="group-hover:text-primary-content" name="logo-x"></ion-icon>
     </a>
   
     <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
-      href="https://facebook.com/sharer/sharer.php?u=http://localhost:1313/posts/yunnanclouds/" target="_blank" rel="noopener noreferrer"
+      href="https://facebook.com/sharer/sharer.php?u=http://localhost:1313/program/python/conda/" target="_blank" rel="noopener noreferrer"
       title="Share on Facebook">
       <ion-icon class="group-hover:text-primary-content" name="logo-facebook"></ion-icon>
     </a>
   
     <a class="group inline-flex items-center p-2 rounded-full cursor-pointer hover:bg-primary"
-      href="https://wa.me/?text=YunNanClouds%20http://localhost:1313/posts/yunnanclouds/" target="_blank" rel="noopener noreferrer"
+      href="https://wa.me/?text=Conda%20http://localhost:1313/program/python/conda/" target="_blank" rel="noopener noreferrer"
       title="Share on WhatsApp">
       <ion-icon class="group-hover:text-primary-content" name="logo-whatsapp"></ion-icon>
     </a>
@@ -344,41 +351,191 @@
       </header>
 
       
-      <img src="/img/background.jpg" alt="YunNanClouds" />
-      
 
-      <hr>
-<p>name: SY<br>
-signature: &lsquo;@玥&rsquo;<br>
-avatar: <a href="https://imgse.com/i/pADAlN9"><img src="https://s21.ax1x.com/2024/10/31/pADAlN9.jpg" alt="pADAlN9.jpg"></a><br>
-date: 2024-10-31T11:04:00+08:00<br>
-tags:<br>
-- 云南的云<br>
-pictures:</p>
-<ul>
-<li><a href="https://imgse.com/i/pABsd29"><img src="https://s21.ax1x.com/2024/10/30/pABsd29.md.jpg" alt="pABsd29.md.jpg"></a></li>
-<li><a href="https://imgse.com/i/pABsa8J"><img src="https://s21.ax1x.com/2024/10/30/pABsa8J.md.jpg" alt="pABsa8J.md.jpg"></a></li>
-<li><a href="https://imgse.com/i/pABsUC4"><img src="https://s21.ax1x.com/2024/10/30/pABsUC4.md.jpg" alt="pABsUC4.md.jpg"></a></li>
-<li><a href="https://imgse.com/i/pABst5F"><img src="https://s21.ax1x.com/2024/10/30/pABst5F.md.jpg" alt="pABst5F.md.jpg"></a></li>
-<li><a href="https://imgse.com/i/pABsYUU"><img src="https://s21.ax1x.com/2024/10/30/pABsYUU.md.jpg" alt="pABsYUU.md.jpg"></a></li>
-<li><a href="https://imgse.com/i/pABQTEV"><img src="https://s21.ax1x.com/2024/10/30/pABQTEV.md.jpg" alt="pABQTEV.md.jpg"></a></li>
-<li><a href="https://imgse.com/i/pABQIH0"><img src="https://s21.ax1x.com/2024/10/30/pABQIH0.md.jpg" alt="pABQIH0.md.jpg"></a></li>
-<li><a href="https://imgse.com/i/pABQ5Bq"><img src="https://s21.ax1x.com/2024/10/30/pABQ5Bq.md.jpg" alt="pABQ5Bq.md.jpg"></a></li>
-<li><a href="https://imgse.com/i/pABQ4un"><img src="https://s21.ax1x.com/2024/10/30/pABQ4un.md.jpg" alt="pABQ4un.md.jpg"></a>
-address: 昆明官渡区</li>
+      <h1 id="conda">Conda</h1>
+<h2 id="conda安装">conda安装</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sh Miniconda3-latest-Linux-x86_64.sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>source ~/.bashrc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>conda install --channel conda-forge cartopy
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>conda install --yes --channel conda-forge
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>conda install --yes --file requirements.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 导出环境</span>
+</span></span><span style="display:flex;"><span>conda env export  --no-builds &gt; conEnv.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 导入环境</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>conda env create -f py36.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pip install --upgrade setuptools
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 查看环境</span>
+</span></span><span style="display:flex;"><span>conda info --envs 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># pip导出安装的库到27.txt：</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pip freeze &gt; requirements.txt
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># pip导入27.txt中列出的库到新机：</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pip install -r 27.txt
+</span></span><span style="display:flex;"><span>  
+</span></span></code></pre></div><ul>
+<li>添加环境变量</li>
 </ul>
-<hr>
-<p>随手拍，云南&rsquo;s Clouds!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vim ~/.bashrc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2.在.bashrc文件底部添加  </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 为了避免与其他服务器用户产生命令冲突,使用自己的英文名+Python替代python </span>
+</span></span><span style="display:flex;"><span>alias yuepython<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;/root/anaconda3/bin/python&#39;</span>   
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#这里写anaconda的安装路径</span>
+</span></span><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/root/anaconda3/bin:</span>$PATH<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>source ~/.bashrc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>conda --version
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#conda 4.5.11</span>
+</span></span></code></pre></div><p>换源</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>vim ~/.condarc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>channels:
+</span></span><span style="display:flex;"><span>  - defaults
+</span></span><span style="display:flex;"><span>show_channel_urls: true
+</span></span><span style="display:flex;"><span>default_channels:
+</span></span><span style="display:flex;"><span>  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+</span></span><span style="display:flex;"><span>  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+</span></span><span style="display:flex;"><span>  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+</span></span><span style="display:flex;"><span>custom_channels:
+</span></span><span style="display:flex;"><span>  conda-forge: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span style="display:flex;"><span>  msys2: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span style="display:flex;"><span>  bioconda: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span style="display:flex;"><span>  menpo: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span style="display:flex;"><span>  pytorch: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span style="display:flex;"><span>  simpleitk: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>或者直接执行
+</span></span><span style="display:flex;"><span>conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+</span></span><span style="display:flex;"><span>conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+</span></span><span style="display:flex;"><span>conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
+</span></span><span style="display:flex;"><span>conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+</span></span><span style="display:flex;"><span>conda config --set show_channel_urls yes
+</span></span></code></pre></div><p>创建虚拟环境</p>
+<ul>
+<li>your_env_name 文件可以在 Anaconda 安装目录 envs 文件下找到。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#创建虚拟环境</span>
+</span></span><span style="display:flex;"><span>conda create -n conEnv python<span style="color:#f92672">=</span>3.10（3.6、3.7等）pip<span style="color:#f92672">=</span>21.0.1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#激活虚拟环境</span>
+</span></span><span style="display:flex;"><span>source activate your_env_name<span style="color:#f92672">(</span>虚拟环境名称<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#退出虚拟环境</span>
+</span></span><span style="display:flex;"><span>source deactivate your_env_name<span style="color:#f92672">(</span>虚拟环境名称<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#删除虚拟环境</span>
+</span></span><span style="display:flex;"><span>conda remove -n your_env_name<span style="color:#f92672">(</span>虚拟环境名称<span style="color:#f92672">)</span> --all
+</span></span><span style="display:flex;"><span>conda remove --name your_env_name package_name  <span style="color:#75715e"># 删除环境中的某个包</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#查看安装了哪些包</span>
+</span></span><span style="display:flex;"><span>conda list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#安装包</span>
+</span></span><span style="display:flex;"><span>conda install package_name<span style="color:#f92672">(</span>包名<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>conda install scrapy<span style="color:#f92672">==</span>1.3 <span style="color:#75715e"># 安装指定版本的包</span>
+</span></span><span style="display:flex;"><span>conda install -n 环境名 包名 <span style="color:#75715e"># 在conda指定的某个环境中安装包</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#查看当前存在哪些虚拟环境</span>
+</span></span><span style="display:flex;"><span>conda env list 
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#或 </span>
+</span></span><span style="display:flex;"><span>conda info -e
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#或</span>
+</span></span><span style="display:flex;"><span>conda info --envs
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#检查更新当前conda</span>
+</span></span><span style="display:flex;"><span>conda update conda
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#更新anaconda</span>
+</span></span><span style="display:flex;"><span>conda update anaconda
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#更新所有库</span>
+</span></span><span style="display:flex;"><span>conda update --all
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#更新python</span>
+</span></span><span style="display:flex;"><span>conda update python
+</span></span></code></pre></div><p>安装requirements.txt依赖：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pip install -q -r requirements.txt
+</span></span></code></pre></div><h2 id="迁移环境打包">迁移环境打包</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>conda pack -n 虚拟环境名称 -o output.tar.gz
+</span></span><span style="display:flex;"><span>如果报错：No command ‘conda pack’
+</span></span><span style="display:flex;"><span>尝试使用：conda install -c conda-forge conda-pack
+</span></span><span style="display:flex;"><span>复制压缩文件到新的电脑环境
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>进到conda的安装目录：/anaconda<span style="color:#f92672">(</span>或者miniconda<span style="color:#f92672">)</span>/envs/
+</span></span><span style="display:flex;"><span>在该名目录下创建文件夹
+</span></span><span style="display:flex;"><span>解压conda环境：tar -xzvf output.tar.gz -C /anaconda<span style="color:#f92672">(</span>或者miniconda<span style="color:#f92672">)</span>/envs/创建的文件夹/
+</span></span><span style="display:flex;"><span>使用conda env list查看虚拟环境
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># pip部分</span>
+</span></span><span style="display:flex;"><span>pip download -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/ -d ./pip_packages
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 打包</span>
+</span></span><span style="display:flex;"><span>tar -czvf example_folder.tar.gz example_folder
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 解压</span>
+</span></span><span style="display:flex;"><span>tar -xzvf example_folder.tar.gz -C output_folder
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 离线安装：</span>
+</span></span><span style="display:flex;"><span>  –find-links指定的是包文件的存放地址，-r指定的是txt文件的位置
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pip install --no-index --find-links<span style="color:#f92672">=</span>d:<span style="color:#ae81ff">\p</span>ackages -r requirements.txt
+</span></span></code></pre></div><h3 id="conda生成-requirementstxt">conda生成 requirements.txt</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python3" data-lang="python3"><span style="display:flex;"><span><span style="color:#75715e"># 导出</span>
+</span></span><span style="display:flex;"><span>conda list <span style="color:#f92672">-</span>e <span style="color:#f92672">&gt;</span> requirements<span style="color:#f92672">.</span>txt
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 导入安装</span>
+</span></span><span style="display:flex;"><span>conda install <span style="color:#f92672">--</span>yes <span style="color:#f92672">--</span>file requirements<span style="color:#f92672">.</span>txt
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 解决上面出现的不执行后续包的问题</span>
+</span></span><span style="display:flex;"><span>FOR <span style="color:#f92672">/</span>F <span style="color:#e6db74">&#34;delims=~&#34;</span> <span style="color:#f92672">%</span>f <span style="color:#f92672">in</span> (requirements<span style="color:#f92672">.</span>txt) DO conda install <span style="color:#f92672">--</span>yes <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%f</span><span style="color:#e6db74">&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 导出 yml 文件方式</span>
+</span></span><span style="display:flex;"><span>conda env export <span style="color:#f92672">&gt;</span> freeze<span style="color:#f92672">.</span>yml
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 安装</span>
+</span></span><span style="display:flex;"><span>conda env create <span style="color:#f92672">-</span>f freeze<span style="color:#f92672">.</span>yml
+</span></span></code></pre></div><h3 id="pipreqs">pipreqs</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pip install pipreqs -i https://pypi.tuna.tsinghua.edu.cn/simple/
+</span></span><span style="display:flex;"><span>pipreqs . --encoding<span style="color:#f92672">=</span>utf8 --force
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 离线包导出</span>
+</span></span><span style="display:flex;"><span>pip download -r requirements.txt -d ./pip_packages
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 离线安装：</span>
+</span></span><span style="display:flex;"><span>  –find-links指定的是包文件的存放地址，-r指定的是txt文件的位置
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pip install --no-index --find-links<span style="color:#f92672">=</span>d:<span style="color:#ae81ff">\p</span>ackages -r requirements.txt
+</span></span></code></pre></div><h2 id="迁移遇到的问题">迁移遇到的问题</h2>
+<h3 id="_condapackerror">_CondaPackError</h3>
+<ul>
+<li>pip安装的包的版本与conda安装的包的版本冲突了，需要进行统一<br>
+解决办法：<br>
+第一步，创建环境时综合考虑初始包的版本，保证满足当前待导出环境中其他包的依赖需求，并在创建环境时设定好版本，例如</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>conda create -n env_name python<span style="color:#f92672">=</span>3.6 pip<span style="color:#f92672">=</span>21.1.2
+</span></span></code></pre></div><p>这样保证了版本兼容性之后，在采用pip安装环境所需要的后续包的时候就不会产生卸载重装已有包更新版本的问题了。</p>
+<p>第二步，在迁移后，可能之后还会有新的包补充安装，并面临环境的再次迁移。因此，需注意以下几点：</p>
+<p>在安装新的包的时候，注意检查其依赖的包，如果有的依赖包在当前环境中已经安装，则需进一步检查其当初是采用pip安装的还是初始时conda安装的，如果是前者，则可直接采用pip install的命令安装新的包，如果是后者，则需要使用conda install先将依赖包按照所需要的版本安装，然后再使用pip install安装新的包，这样便保证了包版本在pip和conda两边的一致性，进而保证再次导出时不会报上述的错误。</p>
+
 
       
       <div class="divider"></div>
       <div class="flex flex-col md:flex-row justify-between gap-4 py-4">
         
-        <a class="group btn btn-outline" href="/posts/program/python/conda/" title="Conda">
+        <a class="group btn btn-outline" href="/program/python/django/" title="Django">
           <ion-icon name="chevron-back"></ion-icon>
           <div class="inline-flex flex-col items-start">
             <span class="text-base-content/60 group-hover:text-neutral-content/60 text-xs font-normal">Previous page</span>
-            <span class="max-w-48 truncate">Conda</span>
+            <span class="max-w-48 truncate">Django</span>
           </div>
         </a>
         
@@ -400,9 +557,9 @@ address: 昆明官渡区</li>
   <div id="disqus_thread"></div>
 <script>
     window.disqus_config = function () {
-        this.page.identifier = '\/posts\/yunnanclouds\/';
-        this.page.title = 'YunNanClouds';
-        this.page.url = 'http:\/\/localhost:1313\/posts\/yunnanclouds\/';
+        this.page.identifier = '\/program\/python\/conda\/';
+        this.page.title = 'Conda';
+        this.page.url = 'http:\/\/localhost:1313\/program\/python\/conda\/';
     };
     function initDisqus() {
         if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
